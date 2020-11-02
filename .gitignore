@@ -59,8 +59,5 @@ sysinfo.txt
 crashlytics-build.properties
 
 *.meta
-DanyPhantom/Temp/UnityLockfile
-DanyPhantom/Library/SourceAssetDB-lock
-DanyPhantom/Library/SourceAssetDB
-DanyPhantom/Library/shadercompiler-UnityShaderCompiler.exe0.log
-DanyPhantom/Library/ArtifactDB
+*.meta
+*.meta
