@@ -37,8 +37,6 @@ public class Possess : MonoBehaviour
         }
     }
 
-
-
     public void possessCorpse()
     {
         Debug.Log("test");
