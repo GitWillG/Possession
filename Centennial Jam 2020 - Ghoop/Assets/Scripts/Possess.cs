@@ -27,10 +27,7 @@ public class Possess : MonoBehaviour
             Debug.Log("collision");
 
         }
-        else if (collision.gameObject.tag == "endZone")
-        {
-            Debug.Log("you win");
-        }
+  
     }
     private void OnTriggerExit2D(Collider2D collision)
     {

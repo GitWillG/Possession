@@ -19,6 +19,10 @@ public class Ghostify : MonoBehaviour
 
             //}
         }
+        else if (collision.gameObject.tag == "endZone")
+        {
+            Debug.Log("you win");
+        }
     }
 
 
