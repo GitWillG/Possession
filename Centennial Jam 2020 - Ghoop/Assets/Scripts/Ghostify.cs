@@ -25,7 +25,7 @@ public class Ghostify : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Hazard")
         {
@@ -44,29 +44,26 @@ public class Ghostify : MonoBehaviour
         }
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Interactable")
         {
-            if (collision.gameObject.GetComponent<Interactable>()!= null && Input.GetKeyDown(KeyCode.E))
+            if (collision.gameObject.GetComponent<Interactable>() != null && Input.GetKeyDown(KeyCode.E))
             {
                 collision.gameObject.GetComponent<Interactable>().interact();
             }
 
         }
-
     }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
 
+    private void OnCollisionExit2D(Collision2D collision)
+    {
         if (collision.gameObject.tag == "Interactable")
         {
             hideInteraction();
 
         }
-
     }
-
 
     public void incorporeal()
     {

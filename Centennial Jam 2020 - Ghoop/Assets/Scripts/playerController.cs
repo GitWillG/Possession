@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour
 {
-    public float speed;
-
-    private Rigidbody2D _rb;
-    private Vector2 _moveVelocity;
-
+    #region Varibales
     [SerializeField]
     private Animator _anim;
-
     [SerializeField]
     private SpriteRenderer _spriteRenderer;
+    private Rigidbody2D _rb;
+    private Vector2 _moveVelocity;
+    public float speed;
+    #endregion
 
+    #region Start, Update, and Fixed Update Methods
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -40,7 +40,9 @@ public class playerController : MonoBehaviour
     {
         _rb.MovePosition(_rb.position + _moveVelocity * Time.fixedDeltaTime);
     }
+    #endregion
 
+    #region Other Methods
     // Method for checking conditions for the Animator
     private void AnimationCheck()
     {
@@ -64,4 +66,5 @@ public class playerController : MonoBehaviour
             _spriteRenderer.flipX = false;
         }
     }
+    #endregion
 }
