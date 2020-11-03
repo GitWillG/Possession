@@ -12,12 +12,8 @@ public class Ghostify : MonoBehaviour
         if (collision.gameObject.tag == "Hazard")
         {
             Debug.Log("collision");
-            //if (Input.GetKeyDown(KeyCode.E))
-            //{
-            //    Debug.Log("E");
-                incorporeal();
+            incorporeal();
 
-            //}
         }
         else if (collision.gameObject.tag == "endZone")
         {
@@ -33,6 +29,7 @@ public class Ghostify : MonoBehaviour
         this.gameObject.tag = "Corpse";
         GameObject ghostOb = Instantiate(ghost, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
         ghostOb.transform.parent = null;
+        ghostOb.GetComponent<Possess>().oldCorpse = this.gameObject;
         Camera.main.GetComponent<CameraFollower>().target = ghostOb.transform;
     }
 }

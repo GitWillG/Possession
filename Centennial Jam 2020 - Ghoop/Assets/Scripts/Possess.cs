@@ -1,19 +1,59 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Possess : MonoBehaviour
 {
     public GameObject ghost;
     public GameObject Corpse;
-    // Start is called before the first frame update
+    public GameObject oldCorpse;
+    public float timeLeft;
+    public Text timerText;
 
+    // Start is called before the first frame update
+    private void Awake()
+    {
+        if (timeLeft <1 )
+        {
+            timeLeft = 5f;
+        }
+        var item = GameObject.Find("TimerText");
+        if (item != null)
+        {
+
+            timerText = item.GetComponent<Text>();
+        }
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && Corpse != null)
         {
+            if (timerText != null)
+            {
+                timerText.text = "";
+
+            }
             Debug.Log("E");
             possessCorpse();
+            return;
+
+        }
+        //StartCoroutine(timeLimit());
+        timeLeft -= Time.unscaledDeltaTime;
+        if (timerText != null)
+        {
+            timerText.text = timeLeft.ToString();
+
+        }
+        if (timeLeft <= 0f)
+        {
+            if (timerText != null)
+            {
+                timerText.text = "";
+
+            }
+            possessCorpse(oldCorpse);
 
         }
     }
@@ -40,16 +80,24 @@ public class Possess : MonoBehaviour
 
     public void possessCorpse()
     {
+
         Debug.Log("test");
         Corpse.GetComponent<Collider2D>().isTrigger = false;
         Corpse.GetComponent<playerController>().enabled = true;
         Camera.main.GetComponent<CameraFollower>().target = Corpse.transform;
         Destroy(this.gameObject);
-        //this.GetComponent<Collider2D>().isTrigger = true;
-        //this.GetComponent<playerController>().enabled = false;
-        //this.gameObject.tag = "Corpse";
-        //GameObject ghostOb = Instantiate(ghost, new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z), Quaternion.identity);
-        //ghostOb.transform.parent = null;
-        //Camera.main.GetComponent<CameraFollower>().target = ghostOb.transform;
+    }
+    public void possessCorpse(GameObject targetcorpse)
+    {
+        Debug.Log("test");
+        targetcorpse.GetComponent<Collider2D>().isTrigger = false;
+        targetcorpse.GetComponent<playerController>().enabled = true;
+        Camera.main.GetComponent<CameraFollower>().target = targetcorpse.transform;
+        Destroy(this.gameObject);
+    }
+    IEnumerator timeLimit()
+    {
+        yield return new WaitForSeconds(timeLeft);
+        possessCorpse(oldCorpse);
     }
 }
