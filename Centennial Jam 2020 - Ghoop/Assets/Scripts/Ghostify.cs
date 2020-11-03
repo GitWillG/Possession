@@ -53,7 +53,6 @@ public class Ghostify : MonoBehaviour
 
         if (collision.gameObject.tag == "Interactable")
         {
-            Debug.Log("collision");
             hideInteraction();
 
         }
