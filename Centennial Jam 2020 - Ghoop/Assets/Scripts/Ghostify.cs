@@ -1,11 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Ghostify : MonoBehaviour
 {
+    public UnityEvent open;
     public GameObject ghost;
+    public Text interactText;
     // Start is called before the first frame update
+    private void Start()
+    {
+        var item = GameObject.Find("PressE");
+        if (item != null)
+        {
+            interactText = item.GetComponent<Text>();
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,11 +27,47 @@ public class Ghostify : MonoBehaviour
             incorporeal();
 
         }
+        if (collision.gameObject.tag == "Interactable")
+        {
+            Debug.Log("collision");
+            displayInteraction();
+
+        }
         else if (collision.gameObject.tag == "endZone")
         {
             Debug.Log("you win");
         }
     }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Interactable")
+        {
+            if (collision.gameObject.GetComponent<Interactable>()!= null && Input.GetKeyDown(KeyCode.E))
+            {
+                collision.gameObject.GetComponent<Interactable>().interact();
+            }
+
+        }
+
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+
+        if (collision.gameObject.tag == "Interactable")
+        {
+            Debug.Log("collision");
+            hideInteraction();
+
+        }
+
+    }
+    //private void Update()
+    //{
+    //    if (Input.GetKey(KeyCode.E))
+    //    {
+    //        open?.Invoke();
+    //    }
+    //}
 
 
     public void incorporeal()
@@ -31,5 +79,13 @@ public class Ghostify : MonoBehaviour
         ghostOb.transform.parent = null;
         ghostOb.GetComponent<Possess>().oldCorpse = this.gameObject;
         Camera.main.GetComponent<CameraFollower>().target = ghostOb.transform;
+    }
+    public void displayInteraction()
+    {
+        interactText.text = "Press E to interact";
+    }
+    public void hideInteraction()
+    {
+        interactText.text = "";
     }
 }
