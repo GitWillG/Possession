@@ -14,6 +14,7 @@ public class Ghostify : MonoBehaviour
 
     [SerializeField]
     private Animator _anim;
+    private GhoopManager GHM;
 
     // Start is called before the first frame update
     private void Start()
@@ -23,6 +24,8 @@ public class Ghostify : MonoBehaviour
         {
             interactText = item.GetComponent<Text>();
         }
+
+        GHM = GameObject.Find("GhoopManager").GetComponent<GhoopManager>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -53,6 +56,21 @@ public class Ghostify : MonoBehaviour
                 collision.gameObject.GetComponent<Interactable>().interact();
             }
 
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+       
+        if (collision.gameObject.tag == "Hazard")
+        {   
+            incorporeal();
+            
+            if (GHM.ghoop <= 0)
+            {
+                GHM.loseGame();
+                Debug.Log("i cri");
+            }
         }
     }
 
