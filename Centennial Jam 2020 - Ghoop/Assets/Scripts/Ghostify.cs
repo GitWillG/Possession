@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class Ghostify : MonoBehaviour
 {
+    public GameObject startLocation;
+
     public UnityEvent open;
     public GameObject ghost;
     public Text interactText;
@@ -36,6 +38,7 @@ public class Ghostify : MonoBehaviour
             Debug.Log("you win");
         }
     }
+
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Interactable")
