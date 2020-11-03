@@ -23,14 +23,12 @@ public class Ghostify : MonoBehaviour
     {
         if (collision.gameObject.tag == "Hazard")
         {
-            Debug.Log("collision");
             incorporeal();
 
         }
         if (collision.gameObject.tag == "Interactable")
         {
-            Debug.Log("collision");
-            displayInteraction();
+            displayInteraction("Press E to interact");
 
         }
         else if (collision.gameObject.tag == "endZone")
@@ -80,9 +78,9 @@ public class Ghostify : MonoBehaviour
         ghostOb.GetComponent<Possess>().oldCorpse = this.gameObject;
         Camera.main.GetComponent<CameraFollower>().target = ghostOb.transform;
     }
-    public void displayInteraction()
+    public void displayInteraction(string input)
     {
-        interactText.text = "Press E to interact";
+        interactText.text = input;
     }
     public void hideInteraction()
     {
