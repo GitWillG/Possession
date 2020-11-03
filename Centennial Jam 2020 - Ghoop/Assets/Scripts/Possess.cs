@@ -10,6 +10,7 @@ public class Possess : MonoBehaviour
     public GameObject oldCorpse;
     public float timeLeft;
     public Text timerText;
+    public Text interactText;
 
     // Start is called before the first frame update
     private void Awake()
@@ -19,7 +20,12 @@ public class Possess : MonoBehaviour
             timeLeft = 5f;
         }
         var item = GameObject.Find("TimerText");
-        timerText = item?.GetComponent<Text>();
+        timerText = item?.GetComponent<Text>(); 
+        var item2 = GameObject.Find("PressE");
+        if (item2 != null)
+        {
+            interactText = item2.GetComponent<Text>();
+        }
 
     }
     private void Update()
@@ -31,7 +37,6 @@ public class Possess : MonoBehaviour
                 timerText.text = "";
 
             }
-            Debug.Log("E");
             possessCorpse();
             return;
 
@@ -59,9 +64,9 @@ public class Possess : MonoBehaviour
     {
         if (collision.gameObject.tag == "Corpse")
         {
+            displayInteraction("Press E to possess corpse");
             Corpse = collision.gameObject;
 
-            Debug.Log("collision");
 
         }
   
@@ -70,15 +75,22 @@ public class Possess : MonoBehaviour
     {
         if (collision.gameObject.tag == "Corpse")
         {
+            hideInteraction();
             Corpse = null;
 
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Corpse")
+        {
+            displayInteraction("Press E to possess corpse");
         }
     }
 
     public void possessCorpse()
     {
 
-        Debug.Log("test");
         Corpse.GetComponent<Collider2D>().isTrigger = false;
         Corpse.GetComponent<playerController>().enabled = true;
         Camera.main.GetComponent<CameraFollower>().target = Corpse.transform;
@@ -86,7 +98,6 @@ public class Possess : MonoBehaviour
     }
     public void possessCorpse(GameObject targetcorpse)
     {
-        Debug.Log("test");
         targetcorpse.GetComponent<Collider2D>().isTrigger = false;
         targetcorpse.GetComponent<playerController>().enabled = true;
         Camera.main.GetComponent<CameraFollower>().target = targetcorpse.transform;
@@ -96,5 +107,13 @@ public class Possess : MonoBehaviour
     {
         yield return new WaitForSeconds(timeLeft);
         possessCorpse(oldCorpse);
+    }
+    public void displayInteraction(string input)
+    {
+        interactText.text = input;
+    }
+    public void hideInteraction()
+    {
+        interactText.text = "";
     }
 }
