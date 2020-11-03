@@ -19,11 +19,8 @@ public class Possess : MonoBehaviour
             timeLeft = 5f;
         }
         var item = GameObject.Find("TimerText");
-        if (item != null)
-        {
+        timerText = item?.GetComponent<Text>();
 
-            timerText = item.GetComponent<Text>();
-        }
     }
     private void Update()
     {
