@@ -10,6 +10,7 @@ public class Interactable : MonoBehaviour
     public UnityEvent onInteracted;
     public void Interact()
     {
+        //if the interactable has a function, run that function
         onInteracted?.Invoke();
     }
 

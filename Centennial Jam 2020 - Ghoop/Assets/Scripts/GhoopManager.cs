@@ -12,25 +12,21 @@ public class GhoopManager : MonoBehaviour
     public Text timerText;
     public Text interactText;
     public Possess tempGhost;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
-        if (timeLeft < 1)
-        {
-            timeLeft = 5f;
-        }
-        // GHM.isGhost = true;
-        var item = GameObject.Find("TimerText");
-        timerText = item?.GetComponent<Text>();
-        var item2 = GameObject.Find("PressE");
-        if (item2 != null)
-        {
-            interactText = item2.GetComponent<Text>();
-        }
+        //initializing values
+        timeLeft = 5f; 
         isGhost = false;
         ghoop = 25f;
         ghoopSlider.maxValue = 25f;
 
+        //if these UI output texts exist, we save the reference
+        timerText = GameObject.Find("TimerText")?.GetComponent<Text>();
+        interactText = GameObject.Find("PressE")?.GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -38,8 +34,11 @@ public class GhoopManager : MonoBehaviour
     {
         if (isGhost)
         {
+            //counterdown timers for ghost form
             timeLeft -= Time.unscaledDeltaTime;
             ghoop -= Time.unscaledDeltaTime; 
+
+            //updating the display as long as you're a ghost
             if (timerText != null)
             {
                 timerText.text = timeLeft.ToString();
@@ -48,6 +47,7 @@ public class GhoopManager : MonoBehaviour
 
         }
 
+        //when out of ghost-form time we reset the player back to an in corpse state, setting our ghost values back to the default state
         if (timeLeft <= 0f)
         {
             if (timerText != null)
@@ -56,17 +56,22 @@ public class GhoopManager : MonoBehaviour
 
             }
             tempGhost.PossessCorpse(tempGhost.oldCorpse);
+
+            //ghost values
             isGhost = false;
             timeLeft = 5f;
             return;
 
         }
+
+        //as long as our ghoop meter isn't empty we will update it.
         if (ghoop >= 0)
         {
             ghoopSlider.value = ghoop;
 
         }
 
+        //our only loss state is if you run out of total ghoop
         if (ghoop <= 0)
         {
             loseGame();
@@ -77,9 +82,9 @@ public class GhoopManager : MonoBehaviour
         Debug.Log("you lose");
     }
 
+    //functions for displaying/hiding interactable elements
     public void DisplayInteraction(string input)
     {
-        interactText.text = "";
         interactText.text = input;
     }
     public void HideInteraction()
