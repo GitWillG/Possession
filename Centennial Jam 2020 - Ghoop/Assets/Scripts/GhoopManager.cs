@@ -15,7 +15,6 @@ public class GhoopManager : MonoBehaviour
         ghoop = 25f;
         ghoopSlider.maxValue = 25f;
 
-        
     }
 
     // Update is called once per frame
