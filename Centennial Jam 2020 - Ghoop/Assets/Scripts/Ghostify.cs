@@ -10,7 +10,7 @@ public class Ghostify : MonoBehaviour
 
     public UnityEvent open;
     public GameObject ghost;
-    public Text interactText;
+    //public Text interactText;
 
     [SerializeField]
     private Animator _anim;
@@ -19,73 +19,78 @@ public class Ghostify : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        var item = GameObject.Find("PressE");
-        if (item != null)
-        {
-            interactText = item.GetComponent<Text>();
-        }
-
         GHM = GameObject.Find("GhoopManager").GetComponent<GhoopManager>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log(collision.gameObject);
         if (collision.gameObject.tag == "Hazard")
         {
+            
             _anim.SetBool("_isMoving", false);
             Incorporeal();
 
         }
-        if (collision.gameObject.tag == "Interactable")
-        {
-            DisplayInteraction("Press E to interact");
 
-        }
         else if (collision.gameObject.tag == "endZone")
         {
             Debug.Log("you win");
         }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Interactable")
-        {
-            if (collision.gameObject.GetComponent<Interactable>() != null && Input.GetKeyDown(KeyCode.E))
-            {
-                collision.gameObject.GetComponent<Interactable>().interact();
-            }
+    //private void OnCollisionStay2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.tag == "Interactable")
+    //    {
 
+
+    //    }
+    //}
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "endZone")
+        {
+            Debug.Log("you win");
         }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-       
-        if (collision.gameObject.tag == "Hazard")
+        if (collision.gameObject.tag == "Interactable")
         {
-            _anim.SetBool("_isMoving", false);
-            if (GHM.isGhost == false)
+            Debug.Log("interaciton");
+            GHM.DisplayInteraction("Press E to interact");
+            if (collision.gameObject.GetComponent<Interactable>() != null && Input.GetKeyDown(KeyCode.E))
             {
-                Incorporeal();
-            }
-            
-            if (GHM.ghoop <= 0)
-            {
-                GHM.loseGame();
-                Debug.Log("i cri");
+                collision.gameObject.GetComponent<Interactable>().Interact();
             }
         }
+        //if (collision.gameObject.tag == "Hazard")
+        //{
+        //    _anim.SetBool("_isMoving", false);
+        //    if (GHM.isGhost == false)
+        //    {
+        //        Incorporeal();
+        //    }
+            
+        //    if (GHM.ghoop <= 0)
+        //    {
+        //        GHM.loseGame();
+        //        Debug.Log("i cri");
+        //    }
+        //}
     }
-
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Interactable")
         {
-            HideInteraction();
+            GHM.HideInteraction();
 
         }
+
     }
+
 
     public void Incorporeal()
     {
@@ -96,14 +101,8 @@ public class Ghostify : MonoBehaviour
         ghostOb.transform.parent = null;
         ghostOb.GetComponent<Possess>().oldCorpse = this.gameObject;
         Camera.main.GetComponent<CameraFollower>().target = ghostOb.transform;
+        GHM.tempGhost = ghostOb.GetComponent<Possess>();
         GHM.isGhost = true;
     }
-    public void DisplayInteraction(string input)
-    {
-        interactText.text = input;
-    }
-    public void HideInteraction()
-    {
-        interactText.text = "";
-    }
+
 }
