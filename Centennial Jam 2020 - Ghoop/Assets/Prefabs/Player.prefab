@@ -13,10 +13,11 @@ GameObject:
   - component: {fileID: 8382879644395810260}
   - component: {fileID: 8382879644395810263}
   - component: {fileID: 8382879644395810219}
-  - component: {fileID: 8382879644395810216}
+  - component: {fileID: 412143639}
+  - component: {fileID: 8589332547364961556}
   m_Layer: 9
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Corpse
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,12 +75,13 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: aa72cfbcc219ce448a98c2e04b612d9e, type: 3}
-  m_Color: {r: 0, g: 0.52542996, b: 1, a: 1}
+  m_Sprite: {fileID: -5653878121705019575, guid: 1638c2ea784b96347b1e9c9a1219e00e,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 0.164, y: 0.3256}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -119,6 +121,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  _anim: {fileID: 412143639}
+  _spriteRenderer: {fileID: 8382879644395810262}
 --- !u!114 &8382879644395810219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,8 +140,28 @@ MonoBehaviour:
       m_Calls: []
   ghost: {fileID: 8102076461481268364, guid: ae782a36aa4e1394f836f729d077cd6c, type: 3}
   interactText: {fileID: 0}
---- !u!58 &8382879644395810216
-CircleCollider2D:
+  _anim: {fileID: 412143639}
+--- !u!95 &412143639
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8382879644395810261}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b5806611bb1ee0849a63edc16ad10f7a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!70 &8589332547364961556
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -149,6 +173,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.03}
-  serializedVersion: 2
-  m_Radius: 0.12
+  m_Offset: {x: 0, y: 0.04}
+  m_Size: {x: 0.25, y: 0.4}
+  m_Direction: 0

@@ -25,12 +25,14 @@ public class GhoopManager : MonoBehaviour
             ghoopSlider.value = ghoop;
 
         }
+
+        if (ghoop <= 0)
+        {
+            loseGame();
+        }
     }
     public void loseGame()
     {
-        if (ghoop <= 0)
-        {
-            Debug.Log("you lose");
-        }
+        Debug.Log("you lose");
     }
 }

@@ -9,6 +9,10 @@ public class Ghostify : MonoBehaviour
     public UnityEvent open;
     public GameObject ghost;
     public Text interactText;
+
+    [SerializeField]
+    private Animator _anim;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -23,6 +27,7 @@ public class Ghostify : MonoBehaviour
     {
         if (collision.gameObject.tag == "Hazard")
         {
+            _anim.SetBool("_isMoving", false);
             incorporeal();
 
         }
