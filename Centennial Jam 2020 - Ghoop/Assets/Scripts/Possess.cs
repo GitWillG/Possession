@@ -11,14 +11,17 @@ public class Possess : MonoBehaviour
     public float timeLeft;
     public Text timerText;
     public Text interactText;
+    public GhoopManager GHM;
 
     // Start is called before the first frame update
     private void Awake()
     {
+        GHM = GameObject.FindObjectOfType<GhoopManager>();
         if (timeLeft <1 )
         {
             timeLeft = 5f;
         }
+        GHM.isGhost = true;
         var item = GameObject.Find("TimerText");
         timerText = item?.GetComponent<Text>(); 
         var item2 = GameObject.Find("PressE");
@@ -43,6 +46,7 @@ public class Possess : MonoBehaviour
         }
         //StartCoroutine(timeLimit());
         timeLeft -= Time.unscaledDeltaTime;
+        GHM.ghoop -= Time.unscaledDeltaTime;
         if (timerText != null)
         {
             timerText.text = timeLeft.ToString();
@@ -91,6 +95,7 @@ public class Possess : MonoBehaviour
     public void possessCorpse()
     {
 
+        GHM.isGhost = false;
         Corpse.GetComponent<Collider2D>().isTrigger = false;
         Corpse.GetComponent<playerController>().enabled = true;
         Camera.main.GetComponent<CameraFollower>().target = Corpse.transform;
@@ -98,6 +103,7 @@ public class Possess : MonoBehaviour
     }
     public void possessCorpse(GameObject targetcorpse)
     {
+        GHM.isGhost = false;
         targetcorpse.GetComponent<Collider2D>().isTrigger = false;
         targetcorpse.GetComponent<playerController>().enabled = true;
         Camera.main.GetComponent<CameraFollower>().target = targetcorpse.transform;

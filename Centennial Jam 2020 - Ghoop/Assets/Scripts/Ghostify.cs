@@ -58,13 +58,6 @@ public class Ghostify : MonoBehaviour
         }
 
     }
-    //private void Update()
-    //{
-    //    if (Input.GetKey(KeyCode.E))
-    //    {
-    //        open?.Invoke();
-    //    }
-    //}
 
 
     public void incorporeal()
