@@ -33,12 +33,12 @@ public class Ghostify : MonoBehaviour
         if (collision.gameObject.tag == "Hazard")
         {
             _anim.SetBool("_isMoving", false);
-            incorporeal();
+            Incorporeal();
 
         }
         if (collision.gameObject.tag == "Interactable")
         {
-            displayInteraction("Press E to interact");
+            DisplayInteraction("Press E to interact");
 
         }
         else if (collision.gameObject.tag == "endZone")
@@ -63,8 +63,12 @@ public class Ghostify : MonoBehaviour
     {
        
         if (collision.gameObject.tag == "Hazard")
-        {   
-            incorporeal();
+        {
+            _anim.SetBool("_isMoving", false);
+            if (GHM.isGhost == false)
+            {
+                Incorporeal();
+            }
             
             if (GHM.ghoop <= 0)
             {
@@ -78,12 +82,12 @@ public class Ghostify : MonoBehaviour
     {
         if (collision.gameObject.tag == "Interactable")
         {
-            hideInteraction();
+            HideInteraction();
 
         }
     }
 
-    public void incorporeal()
+    public void Incorporeal()
     {
         this.GetComponent<Collider2D>().isTrigger = true;
         this.GetComponent<playerController>().enabled = false;
@@ -92,12 +96,13 @@ public class Ghostify : MonoBehaviour
         ghostOb.transform.parent = null;
         ghostOb.GetComponent<Possess>().oldCorpse = this.gameObject;
         Camera.main.GetComponent<CameraFollower>().target = ghostOb.transform;
+        GHM.isGhost = true;
     }
-    public void displayInteraction(string input)
+    public void DisplayInteraction(string input)
     {
         interactText.text = input;
     }
-    public void hideInteraction()
+    public void HideInteraction()
     {
         interactText.text = "";
     }

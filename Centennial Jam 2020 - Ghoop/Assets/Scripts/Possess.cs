@@ -21,7 +21,7 @@ public class Possess : MonoBehaviour
         {
             timeLeft = 5f;
         }
-        GHM.isGhost = true;
+       // GHM.isGhost = true;
         var item = GameObject.Find("TimerText");
         timerText = item?.GetComponent<Text>(); 
         var item2 = GameObject.Find("PressE");
@@ -40,7 +40,7 @@ public class Possess : MonoBehaviour
                 timerText.text = "";
 
             }
-            possessCorpse();
+            PossessCorpse();
             return;
 
         }
@@ -59,7 +59,7 @@ public class Possess : MonoBehaviour
                 timerText.text = "";
 
             }
-            possessCorpse(oldCorpse);
+            PossessCorpse(oldCorpse);
 
         }
     }
@@ -68,7 +68,7 @@ public class Possess : MonoBehaviour
     {
         if (collision.gameObject.tag == "Corpse")
         {
-            displayInteraction("Press E to possess corpse");
+            DisplayInteraction("Press E to possess corpse");
             Corpse = collision.gameObject;
 
 
@@ -79,7 +79,7 @@ public class Possess : MonoBehaviour
     {
         if (collision.gameObject.tag == "Corpse")
         {
-            hideInteraction();
+            HideInteraction();
             Corpse = null;
 
         }
@@ -88,11 +88,11 @@ public class Possess : MonoBehaviour
     {
         if (collision.gameObject.tag == "Corpse")
         {
-            displayInteraction("Press E to possess corpse");
+            DisplayInteraction("Press E to possess corpse");
         }
     }
 
-    public void possessCorpse()
+    public void PossessCorpse()
     {
 
         GHM.isGhost = false;
@@ -101,7 +101,7 @@ public class Possess : MonoBehaviour
         Camera.main.GetComponent<CameraFollower>().target = Corpse.transform;
         Destroy(this.gameObject);
     }
-    public void possessCorpse(GameObject targetcorpse)
+    public void PossessCorpse(GameObject targetcorpse)
     {
         GHM.isGhost = false;
         targetcorpse.GetComponent<Collider2D>().isTrigger = false;
@@ -109,16 +109,16 @@ public class Possess : MonoBehaviour
         Camera.main.GetComponent<CameraFollower>().target = targetcorpse.transform;
         Destroy(this.gameObject);
     }
-    IEnumerator timeLimit()
+    IEnumerator TimeLimit()
     {
         yield return new WaitForSeconds(timeLeft);
-        possessCorpse(oldCorpse);
+        PossessCorpse(oldCorpse);
     }
-    public void displayInteraction(string input)
+    public void DisplayInteraction(string input)
     {
         interactText.text = input;
     }
-    public void hideInteraction()
+    public void HideInteraction()
     {
         interactText.text = "";
     }
