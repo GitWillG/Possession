@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 public class SceneManagement : MonoBehaviour
 {
     private static SceneManagement _instance;
-    public static SceneManagement instance { get { return _instance; } }
+    public static SceneManagement Instance { get { return _instance; } }
 
+     #region Methods
     void Awake()
     {
+        // Singleton Implementation
         if (_instance != null && _instance != this)
         {
             Destroy(this.gameObject);
@@ -39,9 +41,11 @@ public class SceneManagement : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    // Quits the application
     public void QuitGame()
     {
         Application.Quit();
         //Debug.Log("Game Successfully Closed");
     }
+    #endregion 
 }

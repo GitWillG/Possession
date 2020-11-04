@@ -255,7 +255,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 800, y: 50}
+  m_SizeDelta: {x: 800, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &341961206
 MonoBehaviour:
@@ -321,7 +321,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 0
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -398,7 +398,7 @@ PrefabInstance:
     - target: {fileID: 2767933809082109914, guid: a9729bb8dcf571a4ba000b4a87c5e0aa,
         type: 3}
       propertyPath: m_Name
-      value: Canvas (1)
+      value: Ghoop Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 2767933809082109918, guid: a9729bb8dcf571a4ba000b4a87c5e0aa,
         type: 3}
@@ -563,7 +563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.95686275}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -639,6 +639,10 @@ MonoBehaviour:
   ghoop: 0
   isGhost: 0
   ghoopSlider: {fileID: 1532670057}
+  timeLeft: 0
+  timerText: {fileID: 0}
+  interactText: {fileID: 0}
+  tempGhost: {fileID: 0}
 --- !u!4 &1654163862
 Transform:
   m_ObjectHideFlags: 0

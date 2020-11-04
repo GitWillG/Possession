@@ -77,6 +77,11 @@ public class playerController : MonoBehaviour
     }
     #endregion
 
+    private void PlayWalkAudio()
+    {
+        AudioManager.Instance.PlaySound("Walk");
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Alive")
