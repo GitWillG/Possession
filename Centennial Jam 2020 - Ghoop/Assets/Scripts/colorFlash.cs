@@ -11,7 +11,7 @@ public class colorFlash : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        myVar = GetComponent<RawImage>().color;
+        myVar = GetComponent<Image>().color;
         
     }
 
@@ -19,6 +19,6 @@ public class colorFlash : MonoBehaviour
     void Update()
     {
        myVar = Color.Lerp(darkGrey, lightRed, Mathf.PingPong(Time.time, 1));
-       this.gameObject.GetComponent<RawImage>().color = myVar;
+       this.gameObject.GetComponent<Image>().color = myVar;
     }
 }
