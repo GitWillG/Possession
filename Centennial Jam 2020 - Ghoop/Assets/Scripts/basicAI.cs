@@ -28,7 +28,7 @@ public class basicAI : MonoBehaviour
     { 
         if (isAlive)
         {
-            if (targetpoints.Count != 0 && walking == false)
+            if (targetpoints.Count != 0 && walking == false && currentTarget == null)
             {
                 int rand = Random.Range(0, targetpoints.Count - 1);
                 currentTarget = targetpoints[rand];
@@ -55,8 +55,10 @@ public class basicAI : MonoBehaviour
             
             if (dist <= 1f)
             {
+                walking = false;
                 _anim.SetBool("_isMoving", false);
                 newrand = Random.Range(0, targetpoints.Count);
+
                 if (targetpoints[newrand].gameObject == currentTarget.gameObject)
                 {
                     newrand = Random.Range(0, targetpoints.Count);
@@ -64,22 +66,24 @@ public class basicAI : MonoBehaviour
                 else
                 {
                     StartCoroutine(wait1sec());
-                    Debug.Log("oopp");
                 }
                
             }
         }
-        else
-        {
-            _anim.SetBool("_isMoving", false);
-            Debug.Log("stopped moving");
-        }
     }
     IEnumerator wait1sec()
     {
+        Debug.Log("oopp");
         yield return new WaitForSeconds(1);
         currentTarget = targetpoints[newrand];
-        _anim.SetBool("_isMoving", true);
+        walking = true;
+    }
+    public void stopWalking()
+    {
+
+        _anim.SetBool("_isMoving", false);
+        walking = false;
+        Debug.Log("stopped");
     }
 
 }
