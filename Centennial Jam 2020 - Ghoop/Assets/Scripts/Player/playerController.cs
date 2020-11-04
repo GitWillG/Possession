@@ -11,6 +11,8 @@ public class playerController : MonoBehaviour
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rb;
     private Vector2 _moveVelocity;
+    public GameObject targetEnemy;
+    public GhoopManager GHM;
     public float speed;
     #endregion
 
@@ -18,6 +20,7 @@ public class playerController : MonoBehaviour
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        GHM = GameObject.Find("GhoopManager").GetComponent<GhoopManager>();
     }
 
     private void Update()
@@ -34,6 +37,12 @@ public class playerController : MonoBehaviour
             {
                 AnimationCheck();
             }
+        if (targetEnemy != null && Input.GetKeyDown(KeyCode.Space))
+        {
+            targetEnemy.GetComponent<basicAI>().enabled = false;
+            targetEnemy.tag = "Corpse";
+            GHM.DisplayInteraction("");
+        }
     }
 
     private void FixedUpdate()
@@ -67,4 +76,26 @@ public class playerController : MonoBehaviour
         }
     }
     #endregion
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Alive")
+        {
+            targetEnemy = collision.gameObject;
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "Alive")
+        {
+            GHM.DisplayInteraction("Press Space to kill");
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Alive")
+        {
+            GHM.DisplayInteraction("");
+        }
+    }
 }
