@@ -56,13 +56,20 @@ public class Ghostify : MonoBehaviour
 
     //Triggers
     //in case we are using a trigger zone for end of level instead of a wall
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.gameObject.tag == "endZone")
+        if (collision.gameObject.tag == "endZone")
         {
             Debug.Log("you win");
         }
+        if (collision.gameObject.tag == "weighted")
+        {
+            collision.gameObject.GetComponent<Interactable>().Interact();
+            collision.gameObject.GetComponent<Interactable>().pressingButton.Add(this.gameObject);
+            //displays the button prompt
+        }
     }
+    
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Interactable")
@@ -72,6 +79,7 @@ public class Ghostify : MonoBehaviour
             GHM.DisplayInteraction("Press E to interact");
             
         }
+    
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -80,6 +88,11 @@ public class Ghostify : MonoBehaviour
         {
             interactableObj = null;
             GHM.HideInteraction();
+        }
+        if (collision.gameObject.tag == "weighted")
+        {
+            collision.gameObject.GetComponent<Interactable>().pressingButton.Remove(this.gameObject);
+            //displays the button prompt
         }
 
     }

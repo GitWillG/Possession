@@ -5,7 +5,7 @@ using UnityEngine;
 public class basicAI : MonoBehaviour
 {
     public List<GameObject> targetpoints;
-    public bool walking;
+    public bool walking;    
     private GameObject currentTarget;
     public bool isAlive;
 
