@@ -42,6 +42,7 @@ public class Ghostify : MonoBehaviour
         if (collision.gameObject.tag == "Hazard")
         {
             _anim.SetBool("_isMoving", false);
+            _anim.SetBool("_isDead", true);
             Incorporeal();
 
         }

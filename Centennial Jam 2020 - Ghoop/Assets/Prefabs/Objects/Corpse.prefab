@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8382879644395810219}
   - component: {fileID: 412143639}
   - component: {fileID: 8589332547364961556}
+  - component: {fileID: 6129320456412564454}
   m_Layer: 9
   m_Name: Corpse
   m_TagString: Corpse
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 8382879644395810261}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -120,9 +121,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8eefe17bbe901c4eb36974ff8ef670d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
   _anim: {fileID: 412143639}
   _spriteRenderer: {fileID: 8382879644395810262}
+  targetEnemy: {fileID: 0}
+  GHM: {fileID: 0}
+  speed: 10
 --- !u!114 &8382879644395810219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,11 +138,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ac93e39763736b47ab0209a6d1459a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startLocation: {fileID: 0}
   open:
     m_PersistentCalls:
       m_Calls: []
   ghost: {fileID: 8102076461481268364, guid: ae782a36aa4e1394f836f729d077cd6c, type: 3}
-  interactText: {fileID: 0}
+  interactableObj: {fileID: 0}
   _anim: {fileID: 412143639}
 --- !u!95 &412143639
 Animator:
@@ -173,6 +177,28 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.04}
-  m_Size: {x: 0.25, y: 0.4}
+  m_Offset: {x: 0, y: 0.21}
+  m_Size: {x: 1, y: 1.2}
   m_Direction: 0
+--- !u!114 &6129320456412564454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8382879644395810261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a023790816803d4498b538f20fea59b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetpoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  walking: 0
+  isAlive: 1
+  _anim: {fileID: 412143639}
+  _spriteRenderer: {fileID: 8382879644395810262}
+  speed: 10

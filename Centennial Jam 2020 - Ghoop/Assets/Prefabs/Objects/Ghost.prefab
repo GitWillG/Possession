@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 8102076461481268364}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -100,9 +100,6 @@ MonoBehaviour:
   ghost: {fileID: 0}
   Corpse: {fileID: 0}
   oldCorpse: {fileID: 0}
-  timeLeft: 0
-  timerText: {fileID: 0}
-  interactText: {fileID: 0}
   GHM: {fileID: 0}
 --- !u!50 &8102076461481268365
 Rigidbody2D:
@@ -139,6 +136,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _anim: {fileID: 0}
   _spriteRenderer: {fileID: 0}
+  targetEnemy: {fileID: 0}
+  GHM: {fileID: 0}
   speed: 10
 --- !u!58 &8102076461481268465
 CircleCollider2D:
@@ -153,6 +152,6 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.03}
+  m_Offset: {x: 0, y: 0.42}
   serializedVersion: 2
-  m_Radius: 0.12
+  m_Radius: 0.71
