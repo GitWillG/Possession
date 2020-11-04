@@ -21,8 +21,15 @@ public class GhoopManager : MonoBehaviour
         //initializing values
         timeLeft = 5f; 
         isGhost = false;
-        ghoop = 25f;
-        ghoopSlider.maxValue = 25f;
+        //if (ghoopSlider = null)
+        //{
+        //    ghoopSlider = GameObject.FindObjectOfType<Slider>();
+        //}
+        if (ghoopSlider!= null)
+        {
+            ghoop = 25f;
+            ghoopSlider.maxValue = 25f;
+        }
 
         //if these UI output texts exist, we save the reference
         timerText = GameObject.Find("TimerText")?.GetComponent<Text>();
@@ -67,7 +74,10 @@ public class GhoopManager : MonoBehaviour
         //as long as our ghoop meter isn't empty we will update it.
         if (ghoop >= 0)
         {
-            ghoopSlider.value = ghoop;
+            if (ghoopSlider != null)
+            {
+                ghoopSlider.value = ghoop;
+            }
 
         }
 
