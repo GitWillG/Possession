@@ -1501,6 +1501,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventTarget: {fileID: 0}
+  pressingButton: []
   onInteracted:
     m_PersistentCalls:
       m_Calls:
@@ -1877,7 +1878,9 @@ MonoBehaviour:
   - {fileID: 1629820751}
   walking: 0
   isAlive: 1
-  speed: 0
+  _anim: {fileID: 1136208108}
+  _spriteRenderer: {fileID: 8382879643677054253}
+  speed: 1
 --- !u!114 &8382879643677054288
 MonoBehaviour:
   m_ObjectHideFlags: 0

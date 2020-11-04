@@ -39,6 +39,7 @@ public class playerController : MonoBehaviour
             }
         if (targetEnemy != null && Input.GetKeyDown(KeyCode.Space))
         {
+            targetEnemy.GetComponent<basicAI>()._anim.SetBool("_isMoving", false);
             targetEnemy.GetComponent<basicAI>().enabled = false;
             targetEnemy.tag = "Corpse";
             GHM.DisplayInteraction("");
@@ -79,6 +80,10 @@ public class playerController : MonoBehaviour
 
     private void PlayWalkAudio()
     {
+        if (AudioManager.Instance == null)
+        {
+            return;
+        }
         AudioManager.Instance.PlaySound("Walk");
     }
 
