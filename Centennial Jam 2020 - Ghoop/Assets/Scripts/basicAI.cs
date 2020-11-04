@@ -32,7 +32,7 @@ public class basicAI : MonoBehaviour
             }
             if (walking == true)
             {
-                transform.position = Vector3.MoveTowards(this.transform.position, currentTarget.transform.position, speed);
+                transform.position = Vector3.MoveTowards(this.transform.position, currentTarget.transform.position, speed * Time.deltaTime);
             }
             float dist = Vector3.Distance(currentTarget.transform.position, transform.position);
             if (dist <= 1f)
