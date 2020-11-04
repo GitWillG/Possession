@@ -9,6 +9,7 @@ public class basicAI : MonoBehaviour
     private GameObject currentTarget;
     public bool isAlive;
 
+    int newrand;
     private Rigidbody2D _rb;
     public float speed;
     // Start is called before the first frame update
@@ -37,17 +38,24 @@ public class basicAI : MonoBehaviour
             float dist = Vector3.Distance(currentTarget.transform.position, transform.position);
             if (dist <= 1f)
             {
-                int newrand = Random.Range(0, targetpoints.Count);
+                newrand = Random.Range(0, targetpoints.Count);
                 if (targetpoints[newrand].gameObject == currentTarget.gameObject)
                 {
                     newrand = Random.Range(0, targetpoints.Count);
                 }
                 else
                 {
-                    currentTarget = targetpoints[newrand];
+                    StartCoroutine(wait1sec());
                 }
+               
             }
         }
+    }
+    IEnumerator wait1sec()
+    {
+        yield return new WaitForSeconds(1);
+        currentTarget = targetpoints[newrand];
+
     }
 
 }
