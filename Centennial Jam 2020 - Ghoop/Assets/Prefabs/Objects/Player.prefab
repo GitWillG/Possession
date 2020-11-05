@@ -143,10 +143,10 @@ GameObject:
   - component: {fileID: 8382879644395810260}
   - component: {fileID: 8589332547364961556}
   - component: {fileID: 412143639}
-  - component: {fileID: 8382879644395810263}
-  - component: {fileID: 8382879644395810219}
   - component: {fileID: 1386698331}
+  - component: {fileID: 8382879644395810263}
   - component: {fileID: 6740315897384276961}
+  - component: {fileID: 8382879644395810219}
   m_Layer: 9
   m_Name: Player
   m_TagString: Corpse
@@ -276,40 +276,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &8382879644395810263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8382879644395810261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8eefe17bbe901c4eb36974ff8ef670d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetEnemy: {fileID: 0}
-  GHM: {fileID: 0}
-  speed: 10
---- !u!114 &8382879644395810219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8382879644395810261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ac93e39763736b47ab0209a6d1459a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startLocation: {fileID: 0}
-  open:
-    m_PersistentCalls:
-      m_Calls: []
-  ghost: {fileID: 8102076461481268364, guid: ae782a36aa4e1394f836f729d077cd6c, type: 3}
-  interactableObj: {fileID: 0}
-  _anim: {fileID: 412143639}
 --- !u!114 &1386698331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,7 +303,22 @@ MonoBehaviour:
   - {x: -0.3593555, y: 0.48584223, z: 0}
   m_ShapePathHash: 198794237
   m_Mesh: {fileID: 0}
-  m_InstanceId: 26130
+  m_InstanceId: 29420
+--- !u!114 &8382879644395810263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8382879644395810261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8eefe17bbe901c4eb36974ff8ef670d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetEnemy: {fileID: 0}
+  GHM: {fileID: 0}
+  speed: 10
 --- !u!114 &6740315897384276961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,3 +333,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Anim: {fileID: 0}
   SpriteRenderer: {fileID: 8382879644395810262}
+--- !u!114 &8382879644395810219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8382879644395810261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ac93e39763736b47ab0209a6d1459a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startLocation: {fileID: 0}
+  open:
+    m_PersistentCalls:
+      m_Calls: []
+  ghost: {fileID: 8102076461481268364, guid: ae782a36aa4e1394f836f729d077cd6c, type: 3}
+  interactableObj: {fileID: 0}
+  _anim: {fileID: 412143639}

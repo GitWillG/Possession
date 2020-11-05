@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 8102076461481268464}
   - component: {fileID: 8102076461481268367}
-  - component: {fileID: 8224571400763535299}
   - component: {fileID: 8102076461481268365}
-  - component: {fileID: 8102076461481268366}
   - component: {fileID: 8102076461481268465}
   - component: {fileID: 6688398860488426774}
+  - component: {fileID: 8102076461481268366}
   - component: {fileID: 988908148477475162}
+  - component: {fileID: 8224571400763535299}
   m_Layer: 11
   m_Name: Ghost
   m_TagString: Untagged
@@ -88,22 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8224571400763535299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8102076461481268364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 259f75fd570447644a644a6e518cd64c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ghost: {fileID: 0}
-  Corpse: {fileID: 0}
-  oldCorpse: {fileID: 0}
-  GHM: {fileID: 0}
 --- !u!50 &8102076461481268365
 Rigidbody2D:
   serializedVersion: 4
@@ -125,21 +109,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &8102076461481268366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8102076461481268364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8eefe17bbe901c4eb36974ff8ef670d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetEnemy: {fileID: 0}
-  GHM: {fileID: 0}
-  speed: 10
 --- !u!58 &8102076461481268465
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -175,6 +144,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8102076461481268366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8102076461481268364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8eefe17bbe901c4eb36974ff8ef670d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetEnemy: {fileID: 0}
+  GHM: {fileID: 0}
+  speed: 10
 --- !u!114 &988908148477475162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,3 +173,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Anim: {fileID: 6688398860488426774}
   SpriteRenderer: {fileID: 8102076461481268367}
+--- !u!114 &8224571400763535299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8102076461481268364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 259f75fd570447644a644a6e518cd64c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ghost: {fileID: 0}
+  Corpse: {fileID: 0}
+  oldCorpse: {fileID: 0}
+  GHM: {fileID: 0}
