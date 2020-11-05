@@ -199,7 +199,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   walking: 0
-  isAlive: 1
+  isAlive: 0
   _anim: {fileID: 412143639}
   _spriteRenderer: {fileID: 8382879644395810262}
   speed: 10
@@ -230,4 +230,4 @@ MonoBehaviour:
   - {x: -0.3593555, y: 0.48584223, z: 0}
   m_ShapePathHash: 198794237
   m_Mesh: {fileID: 0}
-  m_InstanceId: 56272
+  m_InstanceId: 20322
