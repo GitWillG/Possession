@@ -303,7 +303,7 @@ MonoBehaviour:
   - {x: -0.3593555, y: 0.48584223, z: 0}
   m_ShapePathHash: 198794237
   m_Mesh: {fileID: 0}
-  m_InstanceId: 29420
+  m_InstanceId: 84010
 --- !u!114 &8382879644395810263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,7 +331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 222d48e243447cf449570f7193ddedb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Anim: {fileID: 0}
+  Anim: {fileID: 412143639}
   SpriteRenderer: {fileID: 8382879644395810262}
 --- !u!114 &8382879644395810219
 MonoBehaviour:
