@@ -6,12 +6,16 @@ public class CorpseAnimator : EntityAnimator
 {
     private basicAI basicAI;
     private playerController playerController;
+    public  GameObject _target;
 
     #region Start and Update Methods
     // Start is called before the first frame update
     void Start()
     {
         basicAI = gameObject.GetComponent<basicAI>();
+      
+        this.Anim = gameObject.GetComponent<Animator>();
+        this.SpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -30,14 +34,36 @@ public class CorpseAnimator : EntityAnimator
         // Checks for player movement if the references are not null and the PlayerController script is enabled
         if (!NoAnimator)
         {
-           
+            if (basicAI.isAlive)
+            {
+                Anim.SetBool("_isDead", false);
+
+                if (basicAI.walking == true)
+                {
+                    Anim.SetBool("_isMoving", true);
+                    if (basicAI.dir < 0)
+                    {
+                        SpriteRenderer.flipX = true;
+                    }
+                    else if (basicAI.dir > 0)
+                    {
+                        SpriteRenderer.flipX = false;
+                    }
+                }
+            }
         }
-        else
+
+        if (basicAI.dist <= 1f && basicAI.waiting == true)
         {
-            Debug.Log("Either Animator or SpriteRenderer is null");
+            Anim.SetBool("_isMoving", false);
         }
 
-        // Checks for basicAI related animation calls
-
+        if (!basicAI.isAlive)
+        {
+            Anim.SetBool("_isDead", true);
+            basicAI.isAlive = false;
+            basicAI.enabled = false;
+        }
+        
     }
 }

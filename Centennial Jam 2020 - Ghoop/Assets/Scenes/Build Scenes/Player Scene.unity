@@ -121,7 +121,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< Updated upstream
 --- !u!43 &15302643
+=======
+--- !u!43 &256234282
+>>>>>>> Stashed changes
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -294,10 +298,22 @@ PrefabInstance:
     - target: {fileID: 1386698331, guid: 73a69cfd4cea05e42991d6763fcf6afc, type: 3}
       propertyPath: m_Mesh
       value: 
+<<<<<<< Updated upstream
       objectReference: {fileID: 904355247}
     - target: {fileID: 1386698331, guid: 73a69cfd4cea05e42991d6763fcf6afc, type: 3}
       propertyPath: m_InstanceId
       value: -24232
+=======
+      objectReference: {fileID: 256234282}
+    - target: {fileID: 1386698331, guid: 73a69cfd4cea05e42991d6763fcf6afc, type: 3}
+      propertyPath: m_InstanceId
+      value: -21014
+      objectReference: {fileID: 0}
+    - target: {fileID: 6740315897384276961, guid: 73a69cfd4cea05e42991d6763fcf6afc,
+        type: 3}
+      propertyPath: Anim
+      value: 
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 8382879644395810217, guid: 73a69cfd4cea05e42991d6763fcf6afc,
         type: 3}
@@ -366,7 +382,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73a69cfd4cea05e42991d6763fcf6afc, type: 3}
+<<<<<<< Updated upstream
 --- !u!43 &904355247
+=======
+--- !u!43 &1161748934
+>>>>>>> Stashed changes
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

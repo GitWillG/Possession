@@ -8,13 +8,16 @@ public class PlayerAnimator : EntityAnimator
     // Start is called before the first frame update
     void Start()
     {
-        this.Anim = this.GetComponent<Animator>();
+        this.Anim = gameObject.GetComponent<Animator>();
+        this.SpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
         AnimationCheck();
+
+
     }
     #endregion
 

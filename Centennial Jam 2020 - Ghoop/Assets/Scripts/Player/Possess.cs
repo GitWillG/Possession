@@ -66,7 +66,9 @@ public class Possess : MonoBehaviour
         Corpse.GetComponent<Collider2D>().isTrigger = false;
         Corpse.GetComponent<playerController>().enabled = true;
         Camera.main.GetComponent<CameraFollower>().target = Corpse.transform;
+        Corpse.GetComponent<CorpseAnimator>().enabled = false;
         Corpse.GetComponent<Animator>().SetBool("_isDead", false);
+        Corpse.GetComponent<PlayerAnimator>().enabled = true;
 
         //destroy the ghost
         Destroy(this.gameObject);
@@ -86,6 +88,7 @@ public class Possess : MonoBehaviour
         targetcorpse.GetComponent<Collider2D>().isTrigger = false;
         targetcorpse.GetComponent<playerController>().enabled = true;
         Camera.main.GetComponent<CameraFollower>().target = targetcorpse.transform;
+        targetcorpse.GetComponent<PlayerAnimator>().enabled = true;
 
         Destroy(this.gameObject);
 

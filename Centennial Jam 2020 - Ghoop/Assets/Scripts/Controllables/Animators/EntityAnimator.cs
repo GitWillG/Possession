@@ -9,7 +9,7 @@ public class EntityAnimator : MonoBehaviour
     [SerializeField]
     protected SpriteRenderer SpriteRenderer;
 
-    protected bool NoAnimator = false;
+    protected bool NoAnimator;
 
     // Start is called before the first frame update
     void Start()

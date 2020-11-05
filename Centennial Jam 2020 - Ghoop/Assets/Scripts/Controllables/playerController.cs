@@ -26,14 +26,8 @@ public class playerController : MonoBehaviour
 
         if (targetEnemy != null && Input.GetKeyDown(KeyCode.Space))
         {
-
-            targetEnemy.GetComponent<basicAI>().stopWalking();
-            targetEnemy.GetComponent<Animator>().SetBool("_isDead", true);
-            targetEnemy.GetComponent<Animator>().SetBool("_isDead", false);
-            targetEnemy.GetComponent<basicAI>().enabled = false;
-            targetEnemy.tag = "Corpse";
-            GHM.DisplayInteraction("");
-            targetEnemy = null;
+            targetEnemy.GetComponent<CorpseAnimator>()._target = targetEnemy;
+            KillEntity();
         }
     }
 
@@ -42,6 +36,15 @@ public class playerController : MonoBehaviour
         _rb.MovePosition(_rb.position + _moveVelocity * Time.fixedDeltaTime);
     }
     #endregion
+
+    public void KillEntity ()
+    {
+        targetEnemy.GetComponent<basicAI>().stopWalking();
+        targetEnemy.GetComponent<basicAI>().isAlive = false;
+        targetEnemy.tag = "Corpse";
+        GHM.DisplayInteraction("");
+        targetEnemy = null;
+    }
 
     private void PlayWalkAudio()
     {

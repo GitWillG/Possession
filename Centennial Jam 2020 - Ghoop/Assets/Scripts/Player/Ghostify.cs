@@ -81,6 +81,7 @@ public class Ghostify : MonoBehaviour
             {
 
                 this.GetComponent<basicAI>().enabled = false;
+                this.GetComponent<CorpseAnimator>().enabled = false;
                 this.tag = "Corpse";
             }
             if (this.GetComponent<playerController>().enabled == true)
@@ -88,9 +89,8 @@ public class Ghostify : MonoBehaviour
                 Incorporeal();
             }
 
-            _anim.SetBool("_isMoving", false);
+            //_anim.SetBool("_isMoving", false);
             _anim.SetBool("_isDead", true);
-
         }
     }
     
@@ -128,6 +128,8 @@ public class Ghostify : MonoBehaviour
         this.GetComponent<Collider2D>().isTrigger = true;
         //Turn off the controller so you cannot move the corpse
         this.GetComponent<playerController>().enabled = false;
+        // Turn off the player Animator
+        this.GetComponent<PlayerAnimator>().enabled = false;
         //turn the game object into a corpse
         this.gameObject.tag = "Corpse";
 

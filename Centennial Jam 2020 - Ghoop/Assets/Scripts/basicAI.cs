@@ -14,8 +14,10 @@ public class basicAI : MonoBehaviour
     [SerializeField]
     private SpriteRenderer _spriteRenderer;
     private Rigidbody2D _rb;
-    private bool waiting;
+    public bool waiting;
     public float speed;
+    public float dir;
+    public float dist;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +32,7 @@ public class basicAI : MonoBehaviour
     { 
         if (isAlive)
         {
-            _anim.SetBool("_isDead", false);
+
             if (targetpoints.Count != 0 && walking == false && currentTarget == null)
             {
                 int rand = Random.Range(0, targetpoints.Count - 1);
@@ -41,20 +43,10 @@ public class basicAI : MonoBehaviour
             if (walking == true)
             {
                 transform.position = Vector3.MoveTowards(this.transform.position, currentTarget.transform.position, speed * Time.deltaTime);
-                
-                _anim.SetBool("_isMoving", true);
-                float dir = currentTarget.transform.position.x - this.transform.position.x; 
-                if (dir < 0)
-                {
-                    _spriteRenderer.flipX = true;
-                }
-                else if (dir > 0)
-                {
-                    _spriteRenderer.flipX = false;
-                }
+                dir = currentTarget.transform.position.x - this.transform.position.x; 
             }
 
-            float dist = Vector3.Distance(currentTarget.transform.position, transform.position);
+            dist = Vector3.Distance(currentTarget.transform.position, transform.position);
             
             if (dist <= 1f && waiting == false)
             {
@@ -83,8 +75,6 @@ public class basicAI : MonoBehaviour
     }
     public void stopWalking()
     {
-
-        _anim.SetBool("_isMoving", false);
         walking = false;
         Debug.Log("stopped");
     }
