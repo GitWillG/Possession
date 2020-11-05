@@ -174,7 +174,7 @@ MonoBehaviour:
   - {x: -0.3593555, y: 0.48584223, z: 0}
   m_ShapePathHash: 198794237
   m_Mesh: {fileID: 0}
-  m_InstanceId: 34456
+  m_InstanceId: 54818
 --- !u!114 &7478044659561411627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,6 +223,8 @@ MonoBehaviour:
   ghost: {fileID: 8102076461481268364, guid: ae782a36aa4e1394f836f729d077cd6c, type: 3}
   interactableObj: {fileID: 0}
   _anim: {fileID: 1410367067079199211}
+  startBody: {fileID: 8382879644395810261, guid: 73a69cfd4cea05e42991d6763fcf6afc,
+    type: 3}
 --- !u!114 &8611281765511652371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Anim: {fileID: 1410367067079199211}
   SpriteRenderer: {fileID: 7478044659561411626}
+  _target: {fileID: 0}
 --- !u!114 &5088250758218584602
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -8,6 +8,8 @@ public class SceneManagement : MonoBehaviour
     private static SceneManagement _instance;
     public static SceneManagement Instance { get { return _instance; } }
 
+    public int firstLevel = 3;
+
      #region Methods
     void Awake()
     {

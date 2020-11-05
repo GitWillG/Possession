@@ -16,6 +16,8 @@ public class Ghostify : MonoBehaviour
     [SerializeField]
     private Animator _anim;
     private GhoopManager GHM;
+    [SerializeField]
+    private GameObject startBody;
 
     // Start is called before the first frame update
     private void Start()
@@ -52,7 +54,7 @@ public class Ghostify : MonoBehaviour
         //if you colide with the end zone you win the game!
         else if (collision.gameObject.tag == "endZone")
         {
-            this.gameObject.transform.position = new Vector2(0, 0);
+            collision.transform.GetChild(0).gameObject.SetActive(true);
             Debug.Log("you win");
         }
     }
@@ -64,7 +66,7 @@ public class Ghostify : MonoBehaviour
     {
         if (collision.gameObject.tag == "endZone")
         {
-            this.gameObject.transform.position = new Vector2(0, 0);
+            collision.transform.GetChild(0).gameObject.SetActive(true);
             Debug.Log("you win");
         }
         if (collision.gameObject.tag == "weighted")

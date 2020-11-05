@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 8382879644395810263}
   - component: {fileID: 6740315897384276961}
   - component: {fileID: 8382879644395810219}
+  - component: {fileID: 6461966043832281207}
   m_Layer: 9
   m_Name: Player
   m_TagString: Corpse
@@ -303,7 +304,7 @@ MonoBehaviour:
   - {x: -0.3593555, y: 0.48584223, z: 0}
   m_ShapePathHash: 198794237
   m_Mesh: {fileID: 0}
-  m_InstanceId: 43134
+  m_InstanceId: 54488
 --- !u!114 &8382879644395810263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -352,3 +353,19 @@ MonoBehaviour:
   ghost: {fileID: 8102076461481268364, guid: ae782a36aa4e1394f836f729d077cd6c, type: 3}
   interactableObj: {fileID: 0}
   _anim: {fileID: 412143639}
+  startBody: {fileID: 8382879644395810261}
+--- !u!114 &6461966043832281207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8382879644395810261}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b4871b5ebef6b54ba4f4fb24c5270d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Anim: {fileID: 0}
+  SpriteRenderer: {fileID: 0}
+  _target: {fileID: 0}

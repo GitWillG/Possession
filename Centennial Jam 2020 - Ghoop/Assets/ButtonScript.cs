@@ -5,16 +5,32 @@ using UnityEngine.SceneManagement;
 
 public class ButtonScript : MonoBehaviour
 {
-    // Loads the scene using LoadSceneMode.Additive
-    public void LoadLevelSingle (int index)
+    public void NextLevel ()
     {
-        SceneManagement.Instance.LoadSceneSingle(index);
+        SceneManagement.Instance.firstLevel++;
+    }
+
+    // Loads the scene using LoadSceneMode.Additive
+    public void LoadLevelSingle ()
+    {
+        if (SceneManagement.Instance.firstLevel == SceneManager.sceneCountInBuildSettings)
+        {
+        NextLevel();
+        SceneManagement.Instance.LoadSceneSingle(SceneManagement.Instance.firstLevel);
+        LoadLevelAdditive();
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     // Loads the scene using LoadSceneMode.Single
-    public void LoadLevelAdditive (int index)
+    public void LoadLevelAdditive ()
     {
-        SceneManagement.Instance.LoadSceneAdditive(index);
+        SceneManagement.Instance.LoadSceneAdditive(1);
+        SceneManagement.Instance.LoadSceneAdditive(2);
+
     }
 
     // Quits the applicaiton
