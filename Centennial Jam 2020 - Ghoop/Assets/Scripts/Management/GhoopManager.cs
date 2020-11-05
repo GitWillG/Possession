@@ -89,7 +89,7 @@ public class GhoopManager : MonoBehaviour
     }
     public void loseGame()
     {
-        Debug.Log("you lose");
+
     }
 
     //functions for displaying/hiding interactable elements

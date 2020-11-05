@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5139807192497345564}
   - component: {fileID: 2885993297152500840}
   m_Layer: 10
-  m_Name: Hazard
+  m_Name: Spike
   m_TagString: Hazard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -3
   m_Sprite: {fileID: 21300000, guid: e64f96d9b2150ff4b9684d1c3d136b89, type: 3}
   m_Color: {r: 1, g: 0.07075471, b: 0.07075471, a: 1}
   m_FlipX: 0
