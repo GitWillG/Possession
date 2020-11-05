@@ -21,6 +21,8 @@ public class Possess : MonoBehaviour
         //if the ghost-player has a nearby corpse and you press E you can possess it
         if (Input.GetKeyDown(KeyCode.E) && Corpse != null)
         {
+
+            Corpse.gameObject.GetComponent<Ghostify>().enabled = true;
             PossessCorpse();
             return;
         }
@@ -80,6 +82,7 @@ public class Possess : MonoBehaviour
     {
         GHM.isGhost = false;
 
+        targetcorpse.gameObject.GetComponent<Ghostify>().enabled = true;
         targetcorpse.GetComponent<Collider2D>().isTrigger = false;
         targetcorpse.GetComponent<playerController>().enabled = true;
         Camera.main.GetComponent<CameraFollower>().target = targetcorpse.transform;

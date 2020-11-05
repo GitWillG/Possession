@@ -3072,7 +3072,7 @@ GameObject:
   - component: {fileID: 1460359291}
   - component: {fileID: 1460359290}
   m_Layer: 0
-  m_Name: PressurePlate (1)
+  m_Name: button
   m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

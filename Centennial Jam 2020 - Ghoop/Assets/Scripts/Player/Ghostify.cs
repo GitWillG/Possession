@@ -41,6 +41,8 @@ public class Ghostify : MonoBehaviour
         //if you colide with a hazard we stop the animations and kill the player
         if (collision.gameObject.tag == "Hazard")
         {
+            this.gameObject.GetComponent<Ghostify>().enabled = false;
+            interactableObj = null;
             _anim.SetBool("_isMoving", false);
             _anim.SetBool("_isDead", true);
             Incorporeal();
@@ -71,6 +73,8 @@ public class Ghostify : MonoBehaviour
         }     //if you colide with a hazard we stop the animations and kill the player
         if (collision.gameObject.tag == "Hazard")
         {
+            this.gameObject.GetComponent<Ghostify>().enabled = false;
+            interactableObj = null;
             if (this.GetComponent<playerController>().enabled == false)
             {
 
