@@ -39,8 +39,10 @@ public class playerController : MonoBehaviour
             }
         if (targetEnemy != null && Input.GetKeyDown(KeyCode.Space))
         {
-            //targetEnemy.GetComponent<basicAI>()._anim.SetBool("_isMoving", false);
+
             targetEnemy.GetComponent<basicAI>().stopWalking();
+            targetEnemy.GetComponent<Animator>().SetBool("_isDead", false);
+            //targetEnemy.GetComponent<basicAI>()._anim.SetBool("_isMoving", false);
             //targetEnemy.GetComponent<basicAI>()._anim.enabled = false;
             targetEnemy.GetComponent<basicAI>().enabled = false;
             targetEnemy.tag = "Corpse";
