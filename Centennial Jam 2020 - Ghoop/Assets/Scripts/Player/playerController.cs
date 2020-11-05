@@ -41,7 +41,7 @@ public class playerController : MonoBehaviour
         {
 
             targetEnemy.GetComponent<basicAI>().stopWalking();
-            targetEnemy.GetComponent<Animator>().SetBool("_isDead", false);
+            targetEnemy.GetComponent<Animator>().SetBool("_isDead", true);
             //targetEnemy.GetComponent<basicAI>()._anim.SetBool("_isMoving", false);
             //targetEnemy.GetComponent<basicAI>()._anim.enabled = false;
             targetEnemy.GetComponent<basicAI>().enabled = false;
