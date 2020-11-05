@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 412143639}
   - component: {fileID: 8589332547364961556}
   - component: {fileID: 6129320456412564454}
+  - component: {fileID: 6500277939155307795}
   m_Layer: 9
   m_Name: Corpse
   m_TagString: Corpse
@@ -202,3 +203,31 @@ MonoBehaviour:
   _anim: {fileID: 412143639}
   _spriteRenderer: {fileID: 8382879644395810262}
   speed: 10
+--- !u!114 &6500277939155307795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8382879644395810261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000
+  m_ShapePath:
+  - {x: -0.3867733, y: -0.40291694, z: 0}
+  - {x: 0.03879094, y: -0.5557074, z: 0}
+  - {x: 0.38878077, y: -0.3390517, z: 0}
+  - {x: 0.3734004, y: 0.4610983, z: 0}
+  - {x: 0.024078727, y: 0.70288825, z: 0}
+  - {x: -0.3593555, y: 0.48584223, z: 0}
+  m_ShapePathHash: 198794237
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 56272

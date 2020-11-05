@@ -45,6 +45,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 3761053747
+    locked: 0
+  - name: Floors
+    uniqueID: 3593066613
+    locked: 0
+  - name: Back Walls
+    uniqueID: 1207491449
+    locked: 0
+  - name: Fore Walls
+    uniqueID: 3674102059
+    locked: 0
+  - name: Roofs
+    uniqueID: 1175610033
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
