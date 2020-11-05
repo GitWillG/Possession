@@ -196,9 +196,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8382879644395810262, guid: 73a69cfd4cea05e42991d6763fcf6afc,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73a69cfd4cea05e42991d6763fcf6afc, type: 3}
---- !u!43 &904355247
+--- !u!43 &587746557
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -361,7 +366,7 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!43 &1249960702
+--- !u!43 &904355247
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
