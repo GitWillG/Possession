@@ -68,6 +68,23 @@ public class Ghostify : MonoBehaviour
             collision.gameObject.GetComponent<Interactable>().Interact();
             collision.gameObject.GetComponent<Interactable>().pressingButton.Add(this.gameObject);
             //displays the button prompt
+        }     //if you colide with a hazard we stop the animations and kill the player
+        if (collision.gameObject.tag == "Hazard")
+        {
+            if (this.GetComponent<playerController>().enabled == false)
+            {
+
+                this.GetComponent<basicAI>().enabled = false;
+                this.tag = "Corpse";
+            }
+            if (this.GetComponent<playerController>().enabled == true)
+            {
+                Incorporeal();
+            }
+
+            _anim.SetBool("_isMoving", false);
+            _anim.SetBool("_isDead", true);
+
         }
     }
     
