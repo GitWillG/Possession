@@ -28,27 +28,9 @@ public class CorpseAnimator : EntityAnimator
         base.AnimationCheck();
 
         // Checks for player movement if the references are not null and the PlayerController script is enabled
-        if (!NoAnimator && playerController.enabled == true)
+        if (!NoAnimator)
         {
-            // Sets the Animator to idle if there is no movement detected.
-            if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
-            {
-                Anim.SetBool("_isMoving", true);
-            }
-            else
-            {
-                Anim.SetBool("_isMoving", false);
-            }
-
-            // Flips the Sprite Renderer in it's X-axis based on whether the player is moving left or right.
-            if (Input.GetAxisRaw("Horizontal") < 0)
-            {
-                SpriteRenderer.flipX = true;
-            }
-            else if (Input.GetAxisRaw("Horizontal") > 0)
-            {
-                SpriteRenderer.flipX = false;
-            }
+           
         }
         else
         {
