@@ -52,6 +52,7 @@ public class Ghostify : MonoBehaviour
         //if you colide with the end zone you win the game!
         else if (collision.gameObject.tag == "endZone")
         {
+            this.gameObject.transform.position = new Vector2(0, 0);
             Debug.Log("you win");
         }
     }
@@ -63,6 +64,7 @@ public class Ghostify : MonoBehaviour
     {
         if (collision.gameObject.tag == "endZone")
         {
+            this.gameObject.transform.position = new Vector2(0, 0);
             Debug.Log("you win");
         }
         if (collision.gameObject.tag == "weighted")
