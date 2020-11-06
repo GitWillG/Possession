@@ -22,6 +22,7 @@ public class Interactable : MonoBehaviour
     {
         //if the interactable has a function, run that function
         onInteracted?.Invoke();
+        playSound();
     }
     public void Interact2()
     {
@@ -29,6 +30,10 @@ public class Interactable : MonoBehaviour
         onInteracted2?.Invoke();
     }
 
+    public void playSound()
+    {
+        AudioManager.Instance.PlaySound("Start Button");
+    }
 
     internal void interact()
     {
