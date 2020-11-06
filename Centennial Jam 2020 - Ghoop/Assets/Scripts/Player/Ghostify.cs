@@ -48,6 +48,7 @@ public class Ghostify : MonoBehaviour
             _anim.SetBool("_isMoving", false);
             _anim.SetBool("_isDead", true);
             Incorporeal();
+            AudioManager.Instance.PlaySound("Possesion");
 
         }
 
@@ -77,6 +78,7 @@ public class Ghostify : MonoBehaviour
         }     //if you colide with a hazard we stop the animations and kill the player
         if (collision.gameObject.tag == "Hazard")
         {
+            AudioManager.Instance.PlaySound("Possesion");
             this.gameObject.GetComponent<Ghostify>().enabled = false;
             interactableObj = null;
             if (this.GetComponent<playerController>().enabled == false)
