@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class PlayerAnimator : EntityAnimator
 {
+    private GhoopManager GHM;
+
     #region Start and Update Method
     // Start is called before the first frame update
     void Start()
     {
         this.Anim = gameObject.GetComponent<Animator>();
         this.SpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        GHM = GameObject.Find("GhoopManager").GetComponent<GhoopManager>();
     }
 
     // Update is called once per frame
@@ -48,6 +51,12 @@ public class PlayerAnimator : EntityAnimator
             else if (Input.GetAxisRaw("Horizontal") > 0)
             {
                 SpriteRenderer.flipX = false;
+            }
+
+            //Checks if time as ghost has expired
+            if (GHM.timeLeft <= 0f)
+            {
+                Anim.SetBool("_isDead", false);
             }
         }
         else

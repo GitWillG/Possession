@@ -63,6 +63,7 @@ public class GhoopManager : MonoBehaviour
             {
                 timerText.text = "";
 
+
             }
             tempGhost.PossessCorpse(tempGhost.oldCorpse);
 
