@@ -926,6 +926,51 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2767933808852483313, guid: a9729bb8dcf571a4ba000b4a87c5e0aa,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767933808852483313, guid: a9729bb8dcf571a4ba000b4a87c5e0aa,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767933808852483313, guid: a9729bb8dcf571a4ba000b4a87c5e0aa,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767933808852483313, guid: a9729bb8dcf571a4ba000b4a87c5e0aa,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -77.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767933808852483313, guid: a9729bb8dcf571a4ba000b4a87c5e0aa,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767933808852483313, guid: a9729bb8dcf571a4ba000b4a87c5e0aa,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767933808852483313, guid: a9729bb8dcf571a4ba000b4a87c5e0aa,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 259.64258
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767933808852483318, guid: a9729bb8dcf571a4ba000b4a87c5e0aa,
+        type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 2767933808852483318, guid: a9729bb8dcf571a4ba000b4a87c5e0aa,
+        type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2767933809082109914, guid: a9729bb8dcf571a4ba000b4a87c5e0aa,
         type: 3}
       propertyPath: m_Name
@@ -1060,6 +1105,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5372500372978219034, guid: a9729bb8dcf571a4ba000b4a87c5e0aa,
+        type: 3}
+      propertyPath: m_Text
+      value: Total Ghost Time
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9729bb8dcf571a4ba000b4a87c5e0aa, type: 3}

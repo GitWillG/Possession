@@ -50,7 +50,7 @@ public class GhoopManager : MonoBehaviour
             //updating the display as long as you're a ghost
             if (timerText != null)
             {
-                timerText.text = timeLeft.ToString();
+                timerText.text = "Ghost Time" + '\n'+ "Remaining: " + Mathf.Round(timeLeft).ToString();
 
             }
 
