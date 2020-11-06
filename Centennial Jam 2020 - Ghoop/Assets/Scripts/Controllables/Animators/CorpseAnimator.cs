@@ -34,6 +34,7 @@ public class CorpseAnimator : EntityAnimator
         // Checks for player movement if the references are not null and the PlayerController script is enabled
         if (!NoAnimator)
         {
+            Anim.SetBool("_isDead", true);
             if (basicAI.isAlive)
             {
                 Anim.SetBool("_isDead", false);
@@ -51,6 +52,7 @@ public class CorpseAnimator : EntityAnimator
                     }
                 }
             }
+
         }
 
         if (basicAI.dist <= 1f && basicAI.waiting == true)
