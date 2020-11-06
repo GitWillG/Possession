@@ -9,19 +9,24 @@ public class Possess : MonoBehaviour
     public GameObject Corpse;
     public GameObject oldCorpse;
     public GhoopManager GHM;
+    private playerController PC;
 
     private void Awake()
     {
+        PC = this.GetComponent<playerController>();
         //get the ghoop manager so we can alter UI text
         GHM = GameObject.Find("GhoopManager").GetComponent<GhoopManager>();
+        //PC.isghost = true;
     }
     // Start is called before the first frame update
     private void Update()
     {
+        PC.isghost = true;
         //if the ghost-player has a nearby corpse and you press E you can possess it
         if (Input.GetKeyDown(KeyCode.E) && Corpse != null)
         {
 
+            PC.isghost = false;
             Corpse.gameObject.GetComponent<Ghostify>().enabled = true;
             PossessCorpse();
             return;

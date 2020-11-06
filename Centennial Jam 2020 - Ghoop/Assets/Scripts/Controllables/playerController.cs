@@ -9,12 +9,14 @@ public class playerController : MonoBehaviour
     private Vector2 _moveVelocity;
     public GameObject targetEnemy;
     public GhoopManager GHM;
+    public bool isghost;
     public float speed;
     #endregion
 
     #region Start, Update, and Fixed Update Methods
     private void Start()
     {
+        isghost = false;
         _rb = GetComponent<Rigidbody2D>();
         GHM = GameObject.Find("GhoopManager").GetComponent<GhoopManager>();
     }
@@ -57,21 +59,21 @@ public class playerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Alive")
+        if (collision.tag == "Alive" && isghost == false && this.tag != "Alive")
         {
             targetEnemy = collision.gameObject;
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Alive")
+        if (collision.tag == "Alive" && isghost == false && this.tag != "Alive")
         {
             GHM.DisplayInteraction("Press Space to kill");
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Alive")
+        if (collision.tag == "Alive" && isghost == false && this.tag != "Alive")
         {
             GHM.DisplayInteraction("");
         }
