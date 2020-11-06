@@ -13,16 +13,24 @@ public class ButtonScript : MonoBehaviour
     // Loads the scene using LoadSceneMode.Additive
     public void LoadLevelSingle ()
     {
-        if (SceneManagement.Instance.firstLevel == SceneManager.sceneCountInBuildSettings)
+        Debug.Log(SceneManager.sceneCountInBuildSettings);
+        if (SceneManagement.Instance.firstLevel < SceneManager.sceneCountInBuildSettings)
         {
-        NextLevel();
+        
         SceneManagement.Instance.LoadSceneSingle(SceneManagement.Instance.firstLevel);
         LoadLevelAdditive();
+        NextLevel();
         }
         else
         {
             SceneManager.LoadScene(0);
+            SceneManagement.Instance.firstLevel = 3;
         }
+    }
+    public void _loadMain()
+    {
+        SceneManagement.Instance.loadMain();
+
     }
 
     // Loads the scene using LoadSceneMode.Single

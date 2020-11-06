@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.SceneManagement;  
 
 public class SceneManagement : MonoBehaviour
 {
@@ -9,6 +9,7 @@ public class SceneManagement : MonoBehaviour
     public static SceneManagement Instance { get { return _instance; } }
 
     public int firstLevel = 3;
+    public GameObject pauseMenu;
 
      #region Methods
     void Awake()
@@ -25,6 +26,15 @@ public class SceneManagement : MonoBehaviour
             //Debug.Log("Instance was not found");
             DontDestroyOnLoad(gameObject);
         }
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log(SceneManager.GetActiveScene().name+ " " + SceneManager.GetSceneByName("Main Menu Scene").name);
+            pausegame();
+        }
+
     }
 
     // Loads the scene using LoadSceneMode.Additive
@@ -48,6 +58,39 @@ public class SceneManagement : MonoBehaviour
     {
         Application.Quit();
         //Debug.Log("Game Successfully Closed");
+    }
+
+    public void loadMain()
+    {
+        pauseMenu.SetActive(false);
+        SceneManager.LoadScene(0);
+        firstLevel = 3;
+    }
+    public void restart()
+    {
+        firstLevel--;
+        LoadSceneSingle(firstLevel);
+        LoadSceneAdditive(1);
+        LoadSceneAdditive(2);
+        pauseMenu.SetActive(false);
+        firstLevel++;
+
+    }
+
+    public void resume()
+    {
+        Time.timeScale = 1;
+        pauseMenu.SetActive(false);
+    }
+
+    public void pausegame()
+    {
+        if (SceneManager.GetActiveScene().name != SceneManager.GetSceneByName("Main Menu Scene").name)
+        {
+            Time.timeScale = 0;
+            pauseMenu.SetActive(true);
+
+        }
     }
     #endregion 
 }

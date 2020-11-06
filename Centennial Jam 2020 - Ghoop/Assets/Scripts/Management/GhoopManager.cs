@@ -39,7 +39,7 @@ public class GhoopManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isGhost)
+        if (isGhost && Time.timeScale != 0)
         {
             //counterdown timers for ghost form
             timeLeft -= Time.unscaledDeltaTime;
