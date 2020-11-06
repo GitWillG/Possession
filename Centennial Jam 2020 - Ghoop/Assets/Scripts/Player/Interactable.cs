@@ -22,7 +22,15 @@ public class Interactable : MonoBehaviour
     {
         //if the interactable has a function, run that function
         onInteracted?.Invoke();
-        playSound();
+        if (this.gameObject.name == "Smoke")
+        {
+            playSmoke();
+        }
+        else
+        {
+
+            playSound();
+        }
     }
     public void Interact2()
     {
@@ -33,6 +41,10 @@ public class Interactable : MonoBehaviour
     public void playSound()
     {
         AudioManager.Instance.PlaySound("Start Button");
+    }
+    public void playSmoke()
+    {
+        AudioManager.Instance.PlaySound("Gas");
     }
 
     internal void interact()
