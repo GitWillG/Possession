@@ -125,8 +125,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.21}
-  m_Size: {x: 1, y: 1.2}
+  m_Offset: {x: 0, y: -0.11260855}
+  m_Size: {x: 1, y: 1.845217}
   m_Direction: 0
 --- !u!95 &1410367067079199211
 Animator:
@@ -174,7 +174,7 @@ MonoBehaviour:
   - {x: -0.3593555, y: 0.48584223, z: 0}
   m_ShapePathHash: 198794237
   m_Mesh: {fileID: 0}
-  m_InstanceId: 54818
+  m_InstanceId: 142578
 --- !u!114 &7478044659561411627
 MonoBehaviour:
   m_ObjectHideFlags: 0
