@@ -94,6 +94,8 @@ public class Possess : MonoBehaviour
         targetcorpse.GetComponent<playerController>().enabled = true;
         Camera.main.GetComponent<CameraFollower>().target = targetcorpse.transform;
         targetcorpse.GetComponent<PlayerAnimator>().enabled = true;
+        targetcorpse.GetComponent<Animator>().SetBool("_isDead", false);
+        targetcorpse.GetComponent<CorpseAnimator>().enabled = false;
 
         Destroy(this.gameObject);
 
