@@ -81,8 +81,11 @@ public class Ghostify : MonoBehaviour
             interactableObj = null;
             if (this.GetComponent<playerController>().enabled == false)
             {
+                if (this.GetComponent<basicAI>() != null)
+                {
 
-                this.GetComponent<basicAI>().enabled = false;
+                    this.GetComponent<basicAI>().enabled = false;
+                }
                 this.GetComponent<CorpseAnimator>().enabled = false;
                 this.tag = "Corpse";
             }
