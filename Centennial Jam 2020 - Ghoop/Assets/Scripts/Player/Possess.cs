@@ -11,6 +11,7 @@ public class Possess : MonoBehaviour
     public GhoopManager GHM;
     private playerController PC;
 
+
     private void Awake()
     {
         PC = this.GetComponent<playerController>();

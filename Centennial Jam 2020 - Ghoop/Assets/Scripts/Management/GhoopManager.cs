@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GhoopManager : MonoBehaviour
@@ -10,6 +11,7 @@ public class GhoopManager : MonoBehaviour
     public Slider ghoopSlider;
     public float timeLeft;
     public Text timerText;
+    public GameObject loseScreen;
     public Text interactText;
     public Possess tempGhost;
 
@@ -68,6 +70,12 @@ public class GhoopManager : MonoBehaviour
             //ghost values
             isGhost = false;
             timeLeft = 5f;
+
+                if (ghoop <= 0)
+            {
+                tempGhost.PossessCorpse(tempGhost.oldCorpse);
+                loseGame();
+            }
             return;
 
         }
@@ -83,14 +91,12 @@ public class GhoopManager : MonoBehaviour
         }
 
         //our only loss state is if you run out of total ghoop
-        if (ghoop <= 0)
-        {
-            loseGame();
-        }
+        
     }
     public void loseGame()
     {
-
+        loseScreen.SetActive(true);
+        Time.timeScale = 0;
     }
 
     //functions for displaying/hiding interactable elements
@@ -101,5 +107,17 @@ public class GhoopManager : MonoBehaviour
     public void HideInteraction()
     {
         interactText.text = "";
+    }
+    public void Restart()
+    {
+        loseScreen.SetActive(false);
+
+        SceneManagement.Instance.restart();
+
+    }
+    public void mainMenu()
+    {
+        loseScreen.SetActive(false);
+        SceneManagement.Instance.loadMain();
     }
 }
