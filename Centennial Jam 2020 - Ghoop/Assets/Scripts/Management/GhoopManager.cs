@@ -29,8 +29,8 @@ public class GhoopManager : MonoBehaviour
         //}
         if (ghoopSlider!= null)
         {
-            ghoop = 25f;
-            ghoopSlider.maxValue = 25f;
+            
+            ghoopSlider.maxValue = timeLeft;
         }
 
         //if these UI output texts exist, we save the reference
@@ -41,41 +41,42 @@ public class GhoopManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ghoop = timeLeft;
         if (isGhost && Time.timeScale != 0)
         {
             //counterdown timers for ghost form
             timeLeft -= Time.unscaledDeltaTime;
-            ghoop -= Time.unscaledDeltaTime; 
+            //ghoop -= Time.unscaledDeltaTime; 
 
             //updating the display as long as you're a ghost
-            if (timerText != null)
-            {
-                timerText.text = "Ghost Time" + '\n'+ "Remaining: " + Mathf.Round(timeLeft).ToString();
+            //if (timerText != null)
+            //{
+            //    //timerText.text = "Ghost Time" + '\n'+ "Remaining: " + Mathf.Round(timeLeft).ToString();
 
-            }
+            //}
 
         }
 
         //when out of ghost-form time we reset the player back to an in corpse state, setting our ghost values back to the default state
         if (timeLeft <= 0f)
         {
-            if (timerText != null)
-            {
-                timerText.text = "";
+            //if (timerText != null)
+            //{
+            //    timerText.text = "";
 
 
-            }
+            //}
             tempGhost.PossessCorpse(tempGhost.oldCorpse);
 
             //ghost values
             isGhost = false;
             timeLeft = 5f;
 
-                if (ghoop <= 0)
-            {
-                tempGhost.PossessCorpse(tempGhost.oldCorpse);
-                loseGame();
-            }
+            //    if (ghoop <= 0)
+            //{
+            //    tempGhost.PossessCorpse(tempGhost.oldCorpse);
+            //    loseGame();
+            //}
             return;
 
         }
@@ -88,6 +89,10 @@ public class GhoopManager : MonoBehaviour
                 ghoopSlider.value = ghoop;
             }
 
+        }
+        else
+        {
+            timeLeft = 5;
         }
 
         //our only loss state is if you run out of total ghoop

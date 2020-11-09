@@ -131,6 +131,7 @@ public class Ghostify : MonoBehaviour
     //Kill the player and spawn a ghost
     public void Incorporeal()
     {
+        GHM.timeLeft = 5;
         //turn the player's corpse into a trigger so it doesn't obstruct the ghost
         this.GetComponent<Collider2D>().isTrigger = true;
         //Turn off the controller so you cannot move the corpse
